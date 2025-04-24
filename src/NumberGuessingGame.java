@@ -6,27 +6,37 @@ public class NumberGuessingGame {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
 
-        int secretNumber = random.nextInt(100) + 1;
-        int guess;
-        int attempts = 0;
-
-        System.out.println("Welcome to the Number Guessing Game!");
-        System.out.println("I'm thinking of a number between 1 and 100.");
+        boolean playAgain;
 
         do {
-            System.out.print("Enter your guess: ");
-            guess = scanner.nextInt();
-            attempts++;
+            int secretNumber = random.nextInt(100) + 1;
+            int guess;
+            int attempts = 0;
 
-            if (guess < secretNumber) {
-                System.out.println("Too low!");
-            } else if (guess > secretNumber) {
-                System.out.println("Too high!");
-            } else {
-                System.out.println("Correct! You guessed it in " + attempts + " tries.");
-            }
-        } while (guess != secretNumber);
+            System.out.println("I'm thinking of a number between 1 and 100.");
 
+            do {
+                System.out.print("Enter your guess: ");
+                guess = scanner.nextInt();
+                attempts++;
+
+                if (guess < secretNumber) {
+                    System.out.println("Too low!");
+                } else if (guess > secretNumber) {
+                    System.out.println("Too high!");
+                } else {
+                    System.out.println("Correct! You guessed it in " + attempts + " tries.");
+                }
+            } while (guess != secretNumber);
+
+            System.out.print("Play again? (y/n): ");
+            scanner.nextLine(); // consume leftover newline
+            String answer = scanner.nextLine().trim().toLowerCase();
+            playAgain = answer.equals("y");
+
+        } while (playAgain);
+
+        System.out.println("Thanks for playing!");
         scanner.close();
     }
 }
