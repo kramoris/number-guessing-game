@@ -14,6 +14,7 @@ public class NumberGuessingGame {
             int attempts = 0;
 
             System.out.println("I'm thinking of a number between 1 and 100.");
+            System.out.println("You have 10 attempts to guess it.");
 
             do {
                 System.out.print("Enter your guess: ");
@@ -26,8 +27,15 @@ public class NumberGuessingGame {
                     System.out.println("Too high!");
                 } else {
                     System.out.println("Correct! You guessed it in " + attempts + " tries.");
+                    break;
                 }
-            } while (guess != secretNumber);
+
+                if (attempts == 10) {
+                    System.out.println("Out of attempts! The number was " + secretNumber);
+                    break;
+                }
+
+            } while (true);
 
             System.out.print("Play again? (y/n): ");
             scanner.nextLine(); // consume leftover newline
