@@ -10,7 +10,7 @@ public class NumberGuessingGame {
 
         do {
             int secretNumber = random.nextInt(100) + 1;
-            int guess = 0;
+            int guess;
             int attempts = 0;
 
             System.out.println("I'm thinking of a number between 1 and 100.");
