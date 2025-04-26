@@ -45,9 +45,16 @@ public class NumberGuessingGame {
             } while (true);
 
             System.out.print("Play again? (y/n): ");
-            scanner.nextLine(); // consume leftover newline
+            scanner.nextLine();
             String answer = scanner.nextLine().trim().toLowerCase();
+
+            while (!answer.equals("y") && !answer.equals("n")) {
+                System.out.print("Please enter 'y' or 'n': ");
+                answer = scanner.nextLine().trim().toLowerCase();
+            }
+
             playAgain = answer.equals("y");
+
 
         } while (playAgain);
 
