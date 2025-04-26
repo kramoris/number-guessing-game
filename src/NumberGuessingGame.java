@@ -21,12 +21,17 @@ public class NumberGuessingGame {
 
                 if (scanner.hasNextInt()) {
                     guess = scanner.nextInt();
+                    if (guess < 1 || guess > 100) {
+                        System.out.println("Please guess a number between 1 and 100.");
+                        continue;
+                    }
                     attempts++;
                 } else {
                     System.out.println("Please enter a number.");
                     scanner.next();
                     continue;
                 }
+
 
                 if (guess < secretNumber) {
                     System.out.println("Too low!");
